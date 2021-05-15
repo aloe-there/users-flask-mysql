@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>Users CRUD</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>All Users</h1>
+        <table class="table table-striped table-hover table-bordered ">
+            <thead class="table-dark">
+                <tr>
+                    <th scope=col>Full Name</th>
+                    <th scope=col>Email</th>
+                    <th scope=col>Creation Date</th>
+                </tr>
+                <tbody>
+                    {% for user in all_users %}
+                    <tr>
+                        <td>{{ user.firstname }} {{ user.lastname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.creation_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </thead>
+        </table>
+    <p><a href="/users/new">Add a new user</a></p>
+    </div>
+</body>
+</html>
