@@ -13,20 +13,24 @@
         <table class="table table-striped table-hover table-bordered ">
             <thead class="table-dark">
                 <tr>
-                    <th scope=col>Full Name</th>
-                    <th scope=col>Email</th>
-                    <th scope=col>Creation Date</th>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Creation Date</th>
+                    <th>Actions</th>
                 </tr>
-                <tbody>
-                    {% for user in all_users %}
-                    <tr>
-                        <td>{{ user.firstname }} {{ user.lastname }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.creation_date }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
             </thead>
+            <tbody>
+                {% for user in all_users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.firstname }} {{ user.lastname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.creation_date }}</td>
+                    <td><a href="/users/{{ user.id }}">Show</a> | <a href="/users/{{ user.id }}/edit">Edit</a> | <a href="/users/{{ user.id }}/delete">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     <p><a href="/users/new">Add a new user</a></p>
     </div>
